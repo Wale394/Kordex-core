@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kordex-core"
+version = "0.1.0rc1"
+description = "Read-only, evidence-based reliability investigations for recorded and adapted telemetry"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+
+[project.optional-dependencies]
+test = ["pytest"]
+mqtt = ["paho-mqtt>=1.6"]
+
+[tool.setuptools]
+py-modules = [
+  "genesis", "asset_contract", "baseline_engine", "comparison_engine",
+  "decision_pipeline", "evidence_contract", "evidence_engine", "evidence_synthesis", "evidence_timeline",
+  "fleet_baseline", "fleet_registry", "history", "incident", "incident_explanation",
+  "incident_manager", "mqtt_telemetry_connector", "normalizer", "observation_quality",
+  "observation_security", "recommendation_engine", "reliability_event", "reliability_fusion",
+  "reliability_memory", "reliability_signal", "reliability_state", "robot_profile",
+  "ros2_telemetry_adapter", "telemetry_capability_discovery", "telemetry_connector",
+  "telemetry_features", "telemetry_pattern_engine", "telemetry_sampling_context",
+  "feature_contract"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["genesis_system*", "kordex_core*"]
