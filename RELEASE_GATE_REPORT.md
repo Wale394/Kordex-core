@@ -1,48 +1,37 @@
 # KORDEX Core release gate report
 
-**Gate result: NOT READY FOR PUBLIC RELEASE.** This report records a candidate audit only; it does not authorize publication or establish legal clearance.
+**Gate result: NOT READY FOR PUBLIC RELEASE.** The dedicated repository has been created and the candidate uploaded, according to the project owner. This local report does not independently verify repository visibility, remote contents, GitHub settings, legal clearance, or the state of the current remote branch.
 
-## Checks performed
+## What the candidate contains
 
-- Candidate contained 108 files before this report. The inventory was reviewed and updated to list this report.
-- `LICENSE` SHA-256 matches the official Apache License 2.0 text at `https://www.apache.org/licenses/LICENSE-2.0.txt` byte-for-byte: `CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30` (202 lines).
-- README commands, example path, test command, optional MQTT extra, and ROS 2 payload-adapter limitation were checked against `pyproject.toml` and the candidate tree. The README explicitly states that ROS 2 does not subscribe to a live graph.
-- Metadata declares Python `>=3.11`, no runtime dependencies, `pytest` as the test extra, and `paho-mqtt>=1.6` as the optional MQTT extra. This matches the documented lazy MQTT import and no native ROS 2 dependency. The build requirement is `setuptools>=68`.
-- The candidate metadata supplies lower bounds or unpinned requirements, not exact resolved versions. There is no lockfile/resolved dependency list in the candidate. The dependency inventory now records the declaration and marks version/license evidence as unverified where no retained authoritative package metadata or license text exists. No dependency license is inferred from its name.
-- File scan found no environment/credential/private-key-named files, cache/build/install folders, local absolute user paths, or excluded data/research/field-test directories. ABB references are explanatory exclusions in documentation; no ABB fixture is present. No bundled third-party source was identified. This is a scan, not proof of complete provenance.
-- README and example describe synthetic recorded data; no real-broker or physical-robot validation is claimed.
-- Candidate-focused tests and packaging/example smoke checks were run during Task 05B, not rerun for this gate. Recorded results: the README's focused pytest command completed with `116 passed`; package installation to a temporary target succeeded; the installed-package example exited successfully. No live broker or hardware test was performed.
+The candidate packages selected Genesis investigation-engine modules, the shared telemetry contract, an optional MQTT subscriber, a ROS 2-style payload adapter, focused tests, and a synthetic recorded-data example. The Core has no declared runtime dependencies beyond the Python standard library. The optional dependency groups are `test = ["pytest"]` and `mqtt = ["paho-mqtt>=1.6"]`; the build requirement is `setuptools>=68`.
 
-## Release blockers and owner/legal review
+The included example generates observations in memory. MQTT tests use a mock client. ROS 2 support translates supported payload objects and does not subscribe to a live ROS 2 graph. No physical-robot validation, representative field-telemetry validation, real-broker interoperability, or validated real-world failure-prediction accuracy is established.
 
-1. **Chain of title:** the provenance statement is owner-provided and not independently verified. The owner must confirm authority to license every included file and copied test, including historic contributions and employment/contractor obligations. Seek qualified legal advice if ownership or rights are uncertain.
-2. **Security intake:** no repository or private vulnerability-reporting channel exists yet. Configure and test a private route before external release or contributions.
-3. **Project names:** Apache 2.0 does not grant trademark rights. Confirm authorization and naming strategy for Genesis/KORDEX before public release; legal advice may be appropriate.
-4. **Dependencies:** exact release dependency versions and their licenses, including transitive/build dependencies, remain unverified. `DEPENDENCIES_AND_PROVENANCE.md` now records metadata constraints and evidence gaps; resolve and review the release dependency set before release.
-5. **Community contact:** the Code of Conduct and security guidance need a real, monitored contact/intake route before inviting external contributors.
+## Evidence recorded in the candidate
+
+- The `LICENSE` file contains the Apache License 2.0 text. Its presence does not establish authority to license every included file.
+- The metadata declares Python `>=3.11`, no runtime dependencies, an optional `pytest` extra, an optional `paho-mqtt>=1.6` extra, and `setuptools>=68` for building.
+- The candidate's dependency constraints are not a release lockfile. Exact resolved versions, license texts, and transitive/build dependency evidence remain to be collected and reviewed.
+- Prior Task 05B records reported 116 focused tests passing, a successful temporary package installation, and a successful synthetic example. Those results are historical and were not rerun as part of the original Task 05E check. Do not treat them as verification of a later GitHub checkout.
+- The previous Task 05E execution attempt could not run Python in its Windows environment. That limitation explains why that attempt did not produce fresh test or dependency-resolution results; it does not establish that the package itself failed.
+- A local file scan is not proof of complete provenance or legal clearance.
+
+## Release blockers
+
+1. **Ownership and provenance:** the owner's authorship and rights statements are owner declarations, not independent verification. Confirm authority to license every included source file and copied test, including employment, contractor, earlier-contributor, third-party, and AI-assisted material considerations.
+2. **Dependencies:** resolve and review exact direct, transitive, and build dependencies and their licenses for the intended release environment. Retain a release-specific resolved inventory or SBOM.
+3. **Security intake:** verify repository security settings, enable private vulnerability reporting where available, and test the reporting route. Establish a monitored contact for security and community concerns.
+4. **Repository state:** verify current remote contents, visibility, collaborator permissions, branch rules, and relevant security features directly on GitHub.
+5. **Names and marks:** Apache 2.0 does not grant trademark rights. Confirm the intended Genesis/KORDEX naming and mark strategy before public release.
+6. **Current-checkout verification:** run installation, the synthetic example, and the focused tests against the exact checkout intended for release. Record observed results, not historical results.
 
 ## Owner decisions and GitHub actions
 
-The owner must complete the chain-of-title, AI-assisted development/third-party material, and Genesis/KORDEX name/mark checklist in `DEPENDENCIES_AND_PROVENANCE.md`. Qualified legal advice is appropriate for uncertain employment/contributor rights, third-party licensing, and trademark rights. This technical review cannot resolve those questions.
+The owner must resolve the provenance and naming questions, and verify repository visibility and security settings. Qualified legal advice may be appropriate where ownership, employment/contributor rights, third-party licensing, or trademark rights are uncertain. This technical report is not legal advice or legal clearance.
 
-For Task 05E, the owner additionally declared that they wrote the included code with AI assistance, knowingly included no other person's code or employer-owned work, and created the Genesis/KORDEX names and logo with no known conflicting rights. These are owner declarations, not independently verified legal findings; the SVG logo remains excluded.
-
-After repository creation, an owner must enable and verify private vulnerability reporting, establish a monitored community/security contact, and review repository access and security settings. Those settings cannot be verified in this local candidate. `DEPENDENCIES_AND_PROVENANCE.md` contains the checklist and recommends Apache-2.0-only contributions without a CLA; optional DCO sign-off is a separate lightweight provenance practice, not title clearance.
-
-No release blocker is resolved by the metadata review alone. The candidate remains **NOT READY FOR PUBLICATION**.
-
-## Task 05E verification status
-
-An initial execution attempt was rejected before process startup with Windows access denied / `os error 5`. On a later shell invocation, `python --version` returned that `python` was not recognized. No usable Python interpreter or venv was available, so no isolated environment, dependency installation, resolved version/license inventory, import check, example run, MQTT optional-dependency check, or MQTT integration test was completed for Task 05E. The prior Task 05B results remain historical and were not rerun. The exact technical dependency review therefore remains blocked; see `DEPENDENCIES_AND_PROVENANCE.md`.
-
-The attempted version check was exactly `python --version`; it failed with “The term 'python' is not recognized”. The planned isolated install command (`python -m venv <temporary-venv>` followed by `<temporary-venv>\Scripts\python -m pip install "<candidate-copy>[test,mqtt]"`) could not be run. No test command was run for Task 05E.
-
-`PUBLICATION_CHECKLIST.md` records the repository creation and verification procedure. No remote repository or active GitHub security/contact setting exists as a result of this task.
-
-The existing review ZIP was preserved and not refreshed; it predates the Task 05E documentation additions. Review the current candidate directory, not that earlier archive, for the owner declarations and publication checklist added in this task.
-
-No individual copyright ownership is asserted here. The Apache license text itself is complete and unmodified; its presence does not clear rights to the candidate contents. Resolve the blockers above before describing the package as cleared for public release.
+`PUBLICATION_CHECKLIST.md` tracks the remaining tasks. Repository creation and upload are recorded as owner-reported facts; private reporting, a monitored contact route, dependency-license clearance, and public visibility are not claimed to be complete.
 
 ## Scope limitations
 
-This is a local read-only analysis prototype. It does not issue robot commands or autonomously control equipment. MQTT support is an optional read-only subscriber. ROS 2 support translates payload objects and is not a native ROS 2 graph subscription. Synthetic/replay checks are not live telemetry, broker interoperability, or hardware validation.
+KORDEX Core is a local, read-only analysis prototype. It does not issue robot commands or autonomously control equipment. MQTT support is an optional read-only subscriber. ROS 2 support translates payloads and is not a native live graph subscription. Synthetic and replay checks do not establish field performance, broker interoperability, or hardware validation.

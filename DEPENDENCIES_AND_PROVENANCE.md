@@ -11,7 +11,7 @@ The candidate contains the existing Genesis source needed for the public `Genesi
 - Top-level compatibility modules listed in `pyproject.toml`, including the evidence timeline and fleet-registry imports, retained because the existing engine imports those names.
 - Focused copied tests under `tests/` and the synthetic example under `examples/`.
 
-The project owner states they authored the project code with AI assistance. That is an owner-provided provenance statement, not an independent authorship or title review. The existing source tree contained no license file or source-level copyright/SPDX notices in the selected paths. No individual copyright notice is added because the owner's legal name and the rightsholder entity/year were not established here. Before publication, confirm the owner has authority to license all included files and that no employment, contractor, or earlier-contributor rights apply.
+The project owner states they authored the project code with AI assistance. That is an owner-provided provenance statement, not an independent authorship or title review. The existing source tree contained no license file or source-level copyright/SPDX notices in the selected paths. No individual copyright notice is added because the owner's legal name and the rightsholder entity/year were not established here. Before a public release, confirm the owner has authority to license all included files and that no employment, contractor, or earlier-contributor rights apply.
 
 ### Owner declarations recorded for Task 05E
 
@@ -80,9 +80,9 @@ The candidate metadata was re-read for this task. The isolated-environment attem
 
 For an Apache-2.0-only project, the simplest starting contribution policy is to accept contributions under the repository's Apache-2.0 license and require no CLA. A DCO sign-off may be adopted as a lightweight provenance attestation, but it is not proof of title and cannot cure uncertainty in existing code. Do not introduce a CLA unless the owner has a concrete relicensing/dual-licensing need and obtains appropriate legal advice. Contributors retain their copyright while granting the permissions specified by Apache 2.0; the project must not imply that contribution transfers ownership.
 
-## GitHub setup after repository creation
+## GitHub setup and release checks
 
-These actions cannot be completed in this local candidate:
+The owner reports that the dedicated `kordex-core` repository has been created and the candidate uploaded: <https://github.com/Wale394/kordex-core>. This local candidate cannot verify the current remote contents, visibility, or repository settings. The following actions still require direct GitHub verification:
 
 1. Enable GitHub private vulnerability reporting in repository Security settings, submit a test/verification using GitHub's supported private reporting flow, and ensure an owner is assigned to monitor incoming reports.
 2. Choose and publish a real, monitored contact route for community issues and the Code of Conduct; do not add an unmonitored or invented address.

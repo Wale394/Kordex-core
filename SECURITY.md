@@ -1,7 +1,9 @@
 # Security policy
 
-This is an unpublished release candidate; it has no active GitHub repository or private vulnerability intake channel yet.
+KORDEX Core is an early-stage research prototype. The repository exists at <https://github.com/Wale394/kordex-core>, but this document does not assume that GitHub private vulnerability reporting is enabled or that a monitored security contact has been configured.
 
-Before inviting contributions or publishing a repository, the owner must enable GitHub private vulnerability reporting. Once enabled, report privately from the repository's Security/Advisories page using **Report a vulnerability**. GitHub's private reporting flow is documented at https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately . Do not report vulnerabilities in a public issue. Until the repository and private route exist, do not send vulnerability details through public channels; there is no verified project email address to provide.
+**Do not disclose vulnerability details in a public issue.** Before reporting a vulnerability, check the repository's **Security** tab for GitHub's private vulnerability reporting option. If it is enabled, use the repository's private **Report a vulnerability** flow. See GitHub's [private vulnerability reporting documentation](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately). If that option is unavailable, do not post exploit details publicly; contact the repository owner through an independently verified private route.
 
-The prototype processes telemetry locally and is not a hardened network service. MQTT authentication and TLS settings do not authenticate the physical origin or correctness of observations. Do not expose experimental services to untrusted networks.
+Repository maintainers should enable and test private reporting and publish a monitored contact route before inviting external contributions.
+
+The prototype processes telemetry locally and is not a hardened network service. MQTT authentication and TLS do not authenticate the physical origin or correctness of observations. Do not expose experimental services to untrusted networks or rely on this prototype as the sole basis for safety-critical decisions.

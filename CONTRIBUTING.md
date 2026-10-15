@@ -1,14 +1,15 @@
 # Contributing to KORDEX Core
 
-This repository is an unpublished release candidate. Before accepting outside contributions, the project owner must confirm the release license, rights to the existing source, and a private security-reporting channel.
+KORDEX Core is an early-stage reliability-investigation prototype. Before accepting outside contributions, maintainers must confirm the licensing and provenance of the existing source and establish a monitored contribution and private security-reporting process. The repository is available at <https://github.com/Wale394/kordex-core>; its visibility and security settings must be checked on GitHub.
 
 ## Contribution expectations
 
-- Keep KORDEX read-only. Do not add robot command publication, automatic control, or autonomous actuation.
+- Keep KORDEX read-only. Do not add robot-command publication, automatic control, or autonomous actuation.
 - Preserve canonical-unit validation, source identity, timestamp meaning, provenance, data quality, uncertainty, and the distinction between an observation and a confirmed fault.
 - Keep changes focused and add deterministic tests for behavior changes.
 - Do not add private telemetry, real-robot datasets, credentials, generated reports, or unverified research outputs.
 - State when data or code is generated or derived and document its source and license.
+- Avoid claims of field validation, failure-prediction accuracy, or integration that the implementation and evidence do not support.
 
 ## Development setup and checks
 
@@ -20,10 +21,10 @@ python -m pytest -q tests/test_observation_quality.py tests/test_telemetry_patte
 python examples/recorded_investigation.py
 ```
 
-The MQTT tests use mocks and do not need a broker. The ROS 2 adapter tests do not require a ROS installation. Report any unavailable optional dependency and do not claim hardware validation.
+The MQTT tests use mocks and do not need a broker. The ROS 2 adapter tests do not require a ROS installation. Report unavailable optional dependencies and do not claim hardware validation when none was performed.
 
-## Submission rights and sign-off
+## Contribution rights and sign-off
 
-The project recommends adopting Developer Certificate of Origin 1.1 sign-off (`Signed-off-by:`) for future contributions after maintainers publish the project contribution process. A DCO records a contributor's certification for that contribution; it does not establish rights to existing files, transfer copyright, or authorize relicensing. No CLA is introduced by this candidate. Contributors retain copyright in their own contributions, subject to the project license grant that applies to accepted submissions.
+Contributors should review the repository license and ensure they have the right to submit their work under it. A Developer Certificate of Origin sign-off (`Signed-off-by:`) may be adopted as a lightweight provenance practice; it does not establish rights to existing files, transfer copyright, or authorize relicensing. No CLA is introduced by this candidate. Contributors retain copyright in their contributions, subject to the applicable project license grant.
 
-Until a repository and contribution workflow exist, do not submit a pull request or disclose security vulnerabilities publicly.
+Do not disclose security vulnerabilities in public issues. Follow [SECURITY.md](SECURITY.md) and use a verified private reporting route.
